@@ -1,0 +1,35 @@
+.header {
+    position: relative; /* Добавяме позиция relative, за да можем да контролираме z-index на децата */
+    background-color: #345bc8; 
+    z-index: 1; /* Задаваме дълбочина 1 (напред) на хедъра */
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+a, span {
+    float: left;
+    color: #e7dfdd;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    transition: transform 0.2s; /* Добавяме transition за плавно анимиране на transform */
+}
+
+a:hover {
+    transform: scale(1.2); /* Променяме размера на шрифта на ховър */
+    border-radius: 15px; /* Премахваме допълнителните стойности на border-radius, тъй като няма нужда от тях */
+    cursor: pointer;
+}
+
+.active {
+    font-size: 19px;
+    border-radius: 15px; /* Премахваме допълнителните стойности на border-radius, тъй като няма нужда от тях */
+}
+
+
+
+/* По-късно ще използваме flexbox за позициониране на часовника в центъра по хоризонталата */
+/* Можете да го направите с display: flex и justify-content: center на .header */
