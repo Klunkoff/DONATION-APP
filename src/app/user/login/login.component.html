@@ -1,0 +1,27 @@
+<section id="login">
+    <form  method="POST" id="login-form">
+        <div class="container">
+            <h1>Login</h1>
+
+            <label for="email">Email</label>
+            <input  id="email" type="email" name="email" placeholder="Enter email">
+            <!-- TODO - validation required and email validation -->
+
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="******">
+            <!-- TODO - password required validation -->
+            
+            <button type="submit" class="loginbtn button" >Login</button>
+
+            <div class="container signin">
+                <p>Don't have an account? <a routerLink="/users/register">Register here</a></p>
+            </div>
+
+            <div class="message-container">
+                <p class="text-small m-4">By creating an account, you agree to the Terms of Service. For more information, see the
+                    <a routerLink="/about">Privacy Statement</a>.
+                </p>
+            </div>
+        </div>
+    </form>
+</section>
