@@ -1,0 +1,108 @@
+#home {
+    padding-bottom: 100px;
+}
+
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* #heading2 {
+    color: #f44336;
+    display: block;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+} */
+
+.home-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 25px;
+}
+
+/* .container {
+    width: 350px;
+    display: inline-block;
+    margin: 0.5rem;
+} */
+
+.message-container { 
+    background-color: #f1f1f1;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+    border-radius: 15px;
+    padding: 16px;
+    display: block;
+}
+
+.message-container p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+    color: #345bc8;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidenav-left {
+    width: 25%;
+    position: absolute;
+    top: 205px;
+    left: 0px;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav-right {
+    width: 25%;
+    position: absolute;
+    top: 205px;
+    right: 0px;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav-message-container {
+    background-color: #f1f1f1;
+    text-align: center;
+    width: 75%;
+    margin: auto;
+    border-radius: 15px;
+    padding: 16px;
+    display: block;
+}
+
+/* Kennedy animation */
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* adding animation to the element */
+.fadeIn {
+    animation-name: fadeInAnimation; /* animation name */
+    animation-duration: 4s;
+    animation-timing-function: ease; 
+    animation-fill-mode: forwards; /* left last value of the animation */
+}

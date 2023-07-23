@@ -4,9 +4,6 @@
     z-index: 1; /* Задаваме дълбочина 1 (напред) на хедъра */
 }
 
-.example-spacer {
-    flex: 1 1 auto;
-}
 
 a, span {
     float: left;
@@ -22,6 +19,12 @@ a:hover {
     transform: scale(1.2); /* Променяме размера на шрифта на ховър */
     border-radius: 15px; /* Премахваме допълнителните стойности на border-radius, тъй като няма нужда от тях */
     cursor: pointer;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+    font-weight: 500;
+    font-size: 22px;
 }
 
 .active {

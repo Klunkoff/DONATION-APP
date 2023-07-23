@@ -1,0 +1,93 @@
+<section id="home">
+    <br>
+    <div class="fadeIn">
+        <h1 id="heading1">"The greatest pleasure in life is giving. The true wealth is in the ability to be grateful for what you can give." - J. F. Kennedy</h1>
+    </div>
+    <br>
+    <div id="image-div">
+    <img class="home-image" src="../../assets/best-things-to-donate-infographic.png" alt="donations-statistics">
+    </div>
+    <br>
+    <div id="sidenav-left" class="sidenav-left">
+        
+        <div class="sidenav-message-container">
+            <h2>How to donate in 3 easy steps?</h2>
+            <p>1. Log in <a routerLink="/users/:id">your profile</a></p>
+            <p>2. Click <a routerLink="/donate">Make a donation</a></p>
+            <p>3. Add the items you want to donate and write a short description</p>
+            <p>Congratulations! You just made a small difference for someone who needs it!</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>Why donating textiles?</h2>
+            <p>1. Helping Others: Your donations support those in need</p>
+            <p>2. Promoting Sustainability: Reusing items reduces waste</p>
+            <p>3. Decluttering with Purpose: Clean your space and make a difference</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>What to donate for victims of floods?</h2>
+            <p>1. Essential Supplies: Donate non-perishable food, bottled water, and hygiene items to meet immediate needs</p>
+            <p>2. Clothing and Bedding: Provide clean, dry clothing and bedding to offer comfort and warmth</p>
+            <p>3. Cleaning Supplies: Offer cleaning tools and materials to help with post-flood cleanup efforts</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>Where can you sign up for volunteering?</h2>
+            <p>1. Red Cross / Red Crescent</p>
+            <p>2. UN Volunteers (UNV)</p>
+            <p>3. Habitat for Humanity</p>
+            <p>4. Doctors Without Borders</p>
+        </div>
+        <br>
+    </div>
+    <div id="sidenav-right" class="sidenav-right">
+       
+        <div class="sidenav-message-container">
+            <h2>How to donate in 3 easy steps?</h2>
+            <p>1. Log in <a routerLink="/users/:id">your profile</a></p>
+            <p>2. Click <a routerLink="/donate">Make a donation</a></p>
+            <p>3. Add the items you want to donate and write a short description</p>
+            <p>Congratulations! You just made a small difference for someone who needs it!</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>Why donating money?</h2>
+            <p>1. Effective Aid: Monetary donations allow organizations to allocate resources efficiently based on the specific needs of each situation</p>
+            <p>2. Flexibility: Money donations provide flexibility to respond quickly to emergencies and adapt to changing circumstances</p>
+            <p>3. Cost-Efficient: Sending money directly to organizations reduces administrative costs and ensures more funds go directly to those in need</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>What to donate for victims of earthquakes?</h2>
+            <p>1. Emergency Supplies: Donate essential items such as bottled water, non-perishable food and blankets to meet immediate needs</p>
+            <p>2. Shelter and Clothing: Provide tents, sleeping bags, and clean clothing to offer temporary shelter and comfort</p>
+            <p>3. Medical Supplies: Medical equipment, first-aid supplies, and medicines to support the injured and medical teams in providing essential care during the aftermath of the earthquake</p>
+        </div>
+        <br>
+        <div class="sidenav-message-container">
+            <h2>How to determine if something is worth donating?</h2>
+            <p>1. Condition: Check if the item is in good condition for donation</p>
+            <p>2. Relevance: Ensure the donation matches the recipients' needs or the organization's guidelines</p>
+            <p>3. Impact: Consider the potential positive impact the donation could have</p>
+            <p>4. Ask yourself - would you like to have it or would you like your kid to have it?</p>
+            <p>If the answer is "yes", then you're good to go - <a routerLink="/donate">Make a donation</a></p>
+        </div>
+        <br>
+    </div>
+    <main>
+        <ng-container *ngIf="!isLogged">
+            <div class="message-container">
+                <p>Check all donated items in the <a routerLink="/catalog">catalog</a>.</p>
+                <p>Do you want to donate something? Post it <a routerLink="/donate">here</a>.</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isLogged">
+            <div class="message-container">
+                <p>If you want to search through all donations, create a <a routerLink="/users/register">registration</a>.</p>
+                <p>If you have a registration, login <a routerLink="/users/login">here</a>.</p>
+            </div>
+        </ng-container>
+        <br>
+    </main>
+</section>
