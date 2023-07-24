@@ -1,17 +1,43 @@
 <section id="login">
-    <form  method="POST" id="login-form">
+    <form #loginForm="ngForm"  method="POST" (ngSubmit)="login(loginForm)" id="login-form">
         <div class="container">
             <h1>Login</h1>
 
             <label for="email">Email</label>
-            <input  id="email" type="email" name="email" placeholder="Enter email">
-            <!-- TODO - validation required and email validation -->
+            <input 
+            #emailInput="ngModel" 
+            ngModel
+            required 
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            id="email" 
+            type="email" 
+            name="email" 
+            placeholder="Enter email">
+            <!-- TODO - validation from Server maybe ??? -->
+            <ng-container *ngIf="emailInput.touched">
+                <p *ngIf="emailInput.errors?.['required']" class="error">Email is required</p>
+                <p *ngIf="emailInput.errors?.['pattern']" class="error">Email is not valid</p>
+            </ng-container>
 
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" placeholder="******">
-            <!-- TODO - password required validation -->
+            <input 
+            #passwordInput="ngModel"
+            ngModel
+            required
+            minlength="5"
+            id="password" 
+            type="password" 
+            name="password" 
+            placeholder="******">
+            <!-- TODO - validation from Server maybe ??? -->
+            <ng-container *ngIf="passwordInput.touched">
+                <p *ngIf="passwordInput.errors?.['required']" class="error">Password is required</p>
+                <p *ngIf="passwordInput.errors?.['minlength']" class="error">Password should be at least 5 characters long</p>
+            </ng-container>
             
-            <button type="submit" class="loginbtn button" >Login</button>
+            <button type="submit" 
+            [disabled]="loginForm.invalid" [ngClass]="{ 'disabled': loginForm.invalid }" 
+            class="loginbtn button" >Login</button>
 
             <div class="container signin">
                 <p>Don't have an account? <a routerLink="/users/register">Register here</a></p>
