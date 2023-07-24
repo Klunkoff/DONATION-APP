@@ -1,1 +1,39 @@
-<p>register works!</p>
+<section id="register">
+    <form method="POST" id="register-form">
+        <div class="container">
+            <h1>Register</h1>
+
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" name="firstName" placeholder="First Name">
+            <!-- TODO First Name is required and minlength (3 chars maybe) validation -->
+
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" name="lastName" placeholder="Last Name">
+            <!-- TODO Last Name is required and minlength (3 chars maybe) validation -->
+
+            <label for="email">Email</label>
+            <input  id="email" type="email" name="email" placeholder="Enter email">
+            <!-- TODO Email required and email isValid validation  -->
+            
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="******">
+            <!-- TODO Password is required and password minlength (5 chars maybe) validation -->
+            
+            <label for="rePassword">Repeat Password</label>
+            <input id="rePassword" type="password" name="rePassword" placeholder="******">
+            <!-- TODO Repass is required and password must match validation -->
+
+            <button type="submit" class="registerbtn button">Register</button>
+
+            <div class="container signin">
+                <p>Already have an account? <a routerLink="/users/login">Sign in</a>.</p>
+            </div>
+
+            <div class="message-container">
+                <p class="text-small m-4">By creating an account, you agree to the Terms of Service. For more information, see the
+                    <a routerLink="/about">Privacy Statement</a>.
+                </p>
+            </div>
+        </div>
+    </form>
+</section>
