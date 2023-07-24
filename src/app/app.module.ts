@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     CoreModule,
     UserModule,
     AppRoutingModule,
