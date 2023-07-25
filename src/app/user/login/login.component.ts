@@ -17,7 +17,6 @@ export class LoginComponent {
 
     console.log(loginForm.value);
     
-
   }
 
 }

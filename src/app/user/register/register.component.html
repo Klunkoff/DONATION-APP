@@ -1,29 +1,83 @@
 <section id="register">
-    <form method="POST" id="register-form">
+    <form #registerForm="ngForm" method="POST" (ngSubmit)="register(registerForm)" id="register-form">
         <div class="container">
             <h1>Register</h1>
 
             <label for="firstName">First Name</label>
-            <input id="firstName" type="text" name="firstName" placeholder="First Name">
-            <!-- TODO First Name is required and minlength (3 chars maybe) validation -->
+            <input 
+            id="firstName"
+            #firstNameInput="ngModel" 
+            ngModel 
+            required 
+            [minlength]="3" 
+            type="text" 
+            name="firstName" 
+            placeholder="First Name">
+            <ng-container *ngIf="firstNameInput.touched">
+                <p *ngIf="firstNameInput.errors?.['required']" class="error">First Name is required</p>
+                <p *ngIf="firstNameInput.errors?.['minlength']" class="error">First Name should be at least 3 characters long</p>
+            </ng-container>
 
             <label for="lastName">Last Name</label>
-            <input id="lastName" type="text" name="lastName" placeholder="Last Name">
-            <!-- TODO Last Name is required and minlength (3 chars maybe) validation -->
+            <input 
+            id="lastName" 
+            #lastNameInput="ngModel" 
+            ngModel 
+            required 
+            [minlength]="3"
+            type="text" 
+            name="lastName" 
+            placeholder="Last Name">
+            <ng-container *ngIf="lastNameInput.touched">
+                <p *ngIf="lastNameInput.errors?.['required']" class="error">Last Name is required</p>
+                <p *ngIf="lastNameInput.errors?.['minlength']" class="error">Last Name should be at least 3 characters long</p>
+            </ng-container>
 
             <label for="email">Email</label>
-            <input  id="email" type="email" name="email" placeholder="Enter email">
-            <!-- TODO Email required and email isValid validation  -->
+            <input 
+            #emailInput="ngModel" 
+            ngModel
+            required 
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            id="email" 
+            type="email" 
+            name="email" 
+            placeholder="Enter email">
+            <ng-container *ngIf="emailInput.touched">
+                <p *ngIf="emailInput.errors?.['required']" class="error">Email is required</p>
+                <p *ngIf="emailInput.errors?.['pattern']" class="error">Email is not valid</p>
+            </ng-container>
             
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" placeholder="******">
-            <!-- TODO Password is required and password minlength (5 chars maybe) validation -->
-            
-            <label for="rePassword">Repeat Password</label>
-            <input id="rePassword" type="password" name="rePassword" placeholder="******">
-            <!-- TODO Repass is required and password must match validation -->
+            <input 
+            #passwordInput="ngModel"
+            ngModel
+            required
+            minlength="5"
+            id="password" 
+            type="password" 
+            name="password" 
+            placeholder="******">
+            <ng-container *ngIf="passwordInput.touched">
+                <p *ngIf="passwordInput.errors?.['required']" class="error">Password is required</p>
+                <p *ngIf="passwordInput.errors?.['minlength']" class="error">Password should be at least 5 characters long</p>
+            </ng-container>
 
-            <button type="submit" class="registerbtn button">Register</button>
+            <label for="rePassword">Repeat Password</label>
+            <input 
+            id="rePassword" 
+            #rePasswordInput="ngModel" 
+            ngModel 
+            type="password" 
+            name="rePassword" 
+            placeholder="******">
+            <ng-container>
+                <p class="error" *ngIf="rePasswordInput.touched && rePasswordInput.value !== registerForm.value.password" >Repeat Password does not match Password!</p>
+            </ng-container>
+
+            <button [disabled]="registerForm.invalid || rePasswordInput.value !== registerForm.value.password" 
+            [ngClass]="{ 'disabled': registerForm.invalid || rePasswordInput.value !== registerForm.value.password }"
+             type="submit" class="registerbtn button">Register</button>
 
             <div class="container signin">
                 <p>Already have an account? <a routerLink="/users/login">Sign in</a>.</p>
