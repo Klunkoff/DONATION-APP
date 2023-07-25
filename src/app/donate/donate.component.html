@@ -1,1 +1,28 @@
-<p>donate works!</p>
+<section id="donate">
+    <form method="POST" id="donate-form">
+        <div class="container">
+            <h1>Make a donation</h1>
+
+            <label for="postTitle">Title</label>
+            <input  id="postTitle" type="text" name="postTitle" placeholder="Enter a title">
+            <!-- TODO title validation - required -->
+            
+            <label for="description">Description</label>
+            <input id="description" type="text" name="description" placeholder="Enter description here">
+            <!-- TODO description validation - required and minlength -->
+            
+            <label for="category">Category</label>
+            <!-- TODO dropdown logic for Category or simple input-->
+
+            <label for="contactInformation">Contact details</label>
+            <input id="contactInformation" type="text" name="contactInformation" placeholder="Enter contact info">
+            <!-- TODO contact information validation - required and minlength -->
+
+            <label for="postPhoto">Upload a photo</label>
+            <input id="postPhoto" type="text" name="postPhoto" placeholder="Upload photo here">
+            <!-- TODO photo validation - required -->
+                 
+            <button type="submit" class="submitbtn button" value="Submit">Submit</button>
+        </div>
+    </form>
+</section>

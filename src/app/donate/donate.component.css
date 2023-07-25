@@ -1,0 +1,79 @@
+.container {
+    margin-top: 40px;
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+#donate {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.submitbtn {
+    background-color: #345bc8;
+    color: #faf8f7;
+    padding: 16px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width: 54%;
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+.submitbtn:hover {
+    opacity: 1;
+    font-size: 17px;
+}
+
+a {
+    color: #345bc8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.container > label{
+    display: block;
+}
+
+.text-small {
+    font-size: 12px !important;
+}
+.m-4 {
+    margin: 24px !important;
+}
+
+.message-container {
+    margin-bottom: 40px !important;
+    display: block;
+}
+
+.error {
+    color: #f44336;
+}
