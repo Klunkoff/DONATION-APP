@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth ,signInWithEmailAndPassword, User } from '@firebase/auth';
+import { getAuth ,signInWithEmailAndPassword, User, signOut } from '@firebase/auth';
 
 
 @Injectable({
@@ -34,8 +34,20 @@ export class UserService {
       const errorMessage = (error as { message: string }).message;
       console.log(errorCode, errorMessage);
     }
+  }
 
+  async logout() {
 
+    try {
+      await signOut(this.auth);
+
+      // TODO - change template go to home page
+      
+    } catch (error) {
+      const errorCode = (error as { code: string }).code;
+      const errorMessage = (error as { message: string }).message;
+      console.log(errorCode, errorMessage);
+    }
   }
 
 
