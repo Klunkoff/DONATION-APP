@@ -25,8 +25,7 @@ export class UserService {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       this.user = userCredential.user;
       this.uid = this.user.uid;
-      console.log(userCredential);
-      
+      console.log(!!getAuth().currentUser);
       // TODO - change template go to catalog page
       
     } catch (error) {
@@ -40,7 +39,8 @@ export class UserService {
 
     try {
       await signOut(this.auth);
-
+      console.log(!!getAuth().currentUser);
+      
       // TODO - change template go to home page
       
     } catch (error) {

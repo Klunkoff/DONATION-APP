@@ -8,13 +8,16 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent {
 
-  isLogged: boolean = false;
-
   constructor(private userService: UserService) { }
+  
+  
+  isLogged(): boolean {
+    return this.userService.isLoggedIn;
+  }
 
   logout(): void {
     this.userService.logout();
   }
-
+  
 
 }
