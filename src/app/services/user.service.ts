@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { getAuth ,signInWithEmailAndPassword, User, signOut } from '@firebase/auth';
 
 
@@ -11,8 +12,7 @@ export class UserService {
   user: User | undefined;
   uid: any;
 
-  constructor() { }
-
+  constructor( private router: Router ) { }
 
 
   get isLoggedIn() {
@@ -25,8 +25,8 @@ export class UserService {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       this.user = userCredential.user;
       this.uid = this.user.uid;
-      console.log(!!getAuth().currentUser);
-      // TODO - change template go to catalog page
+      
+      this.router.navigate(['catalog']);
       
     } catch (error) {
       const errorCode = (error as { code: string }).code;
@@ -41,7 +41,7 @@ export class UserService {
       await signOut(this.auth);
       console.log(!!getAuth().currentUser);
       
-      // TODO - change template go to home page
+      this.router.navigate(['home']);
       
     } catch (error) {
       const errorCode = (error as { code: string }).code;
