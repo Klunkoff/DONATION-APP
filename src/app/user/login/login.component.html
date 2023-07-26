@@ -24,7 +24,7 @@
             #passwordInput="ngModel"
             ngModel
             required
-            minlength="5"
+            minlength="6"
             id="password" 
             type="password" 
             name="password" 
@@ -32,7 +32,7 @@
             <!-- TODO - validation from Server maybe ??? -->
             <ng-container *ngIf="passwordInput.touched">
                 <p *ngIf="passwordInput.errors?.['required']" class="error">Password is required</p>
-                <p *ngIf="passwordInput.errors?.['minlength']" class="error">Password should be at least 5 characters long</p>
+                <p *ngIf="passwordInput.errors?.['minlength']" class="error">Password should be at least 6 characters long</p>
             </ng-container>
             
             <button type="submit" 
