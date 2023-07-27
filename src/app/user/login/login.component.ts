@@ -19,8 +19,6 @@ export class LoginComponent {
 
     const { email, password } = loginForm.value;
     this.userService.loginWithEmailAndPassword(email, password);
-
-    console.log(loginForm.value);
     
   }
 

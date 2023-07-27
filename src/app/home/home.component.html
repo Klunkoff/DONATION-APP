@@ -12,7 +12,7 @@
         
         <div class="sidenav-message-container">
             <h2>How to donate in 3 easy steps?</h2>
-            <p>1. Log in <a routerLink="/users/:id">your profile</a></p>
+            <p>1. Log in <a routerLink="/users/profile">your profile</a></p>
             <p>2. Click <a routerLink="/donate">Make a donation</a></p>
             <p>3. Add the items you want to donate and write a short description</p>
             <p>Congratulations! You just made a small difference for someone who needs it!</p>
@@ -45,7 +45,7 @@
        
         <div class="sidenav-message-container">
             <h2>How to donate in 3 easy steps?</h2>
-            <p>1. Log in <a routerLink="/users/:id">your profile</a></p>
+            <p>1. Log in <a routerLink="/users/profile">your profile</a></p>
             <p>2. Click <a routerLink="/donate">Make a donation</a></p>
             <p>3. Add the items you want to donate and write a short description</p>
             <p>Congratulations! You just made a small difference for someone who needs it!</p>
@@ -76,13 +76,13 @@
         <br>
     </div>
     <main>
-        <ng-container *ngIf="!isLogged">
+        <ng-container *ngIf="isLogged()">
             <div class="message-container">
                 <p>Check all donated items in the <a routerLink="/catalog">catalog</a>.</p>
                 <p>Do you want to donate something? Post it <a routerLink="/donate">here</a>.</p>
             </div>
         </ng-container>
-        <ng-container *ngIf="isLogged">
+        <ng-container *ngIf="!isLogged()">
             <div class="message-container">
                 <p>If you want to search through all donations, create a <a routerLink="/users/register">registration</a>.</p>
                 <p>If you have a registration, login <a routerLink="/users/login">here</a>.</p>

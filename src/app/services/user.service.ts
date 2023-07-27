@@ -14,6 +14,7 @@ export class UserService {
 
   constructor( private router: Router ) { }
 
+  // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
     return !!getAuth().currentUser;
@@ -39,7 +40,6 @@ export class UserService {
 
     try {
       await signOut(this.auth);
-      console.log(!!getAuth().currentUser);
       
       this.router.navigate(['home']);
       
