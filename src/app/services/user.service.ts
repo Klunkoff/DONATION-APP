@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getAuth ,signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword } from '@firebase/auth';
+import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword } from '@firebase/auth';
 
 
 @Injectable({
@@ -18,6 +18,8 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
+    console.log(!!getAuth().currentUser);
+    
     return !!getAuth().currentUser;
   }
 
