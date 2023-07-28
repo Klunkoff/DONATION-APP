@@ -12,7 +12,9 @@
             <!-- TODO description validation - required and minlength -->
             
             <label for="category">Category</label>
-            <app-dropdown></app-dropdown>
+            <app-dropdown 
+            [data]="categoriesData"
+            ></app-dropdown>
 
             <label for="contactInformation">Contact details</label>
             <input id="contactInformation" type="text" name="contactInformation" placeholder="Enter contact info">

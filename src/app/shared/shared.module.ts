@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule
   ],
   exports: [

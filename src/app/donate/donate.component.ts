@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class DonateComponent {
 
+  categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
+
+ 
+
+
 }
