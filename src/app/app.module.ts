@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { DonateComponent } from './donate/donate.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { environment } from 'src/environments/environments';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { environment } from 'src/environments/environments';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), 
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule, 
     SharedModule,
     CoreModule,
     UserModule,

@@ -77,3 +77,8 @@ a {
 .error {
     color: #f44336;
 }
+
+button.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
