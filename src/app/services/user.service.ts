@@ -7,6 +7,7 @@ import { getAuth ,signInWithEmailAndPassword, User, signOut, createUserWithEmail
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   auth = getAuth();
@@ -24,20 +25,40 @@ export class UserService {
 
   async registerWithEmailAndPassword(firstName: string, lastName: string, email: string, password: string) {
 
+
+    // createUserWithEmailAndPassword(this.auth, email, password)
+    //   .then((userCredential) => {
+    //     this.user = userCredential.user;
+    //     this.uid = userCredential.user.uid;
+    //      return this.firestore.collection('users')
+    //       .doc(userCredential.user.uid)
+    //       .set({firstName: firstName, lastName: lastName, email: email });
+          
+          
+    //   })
+    //   .then(() => {
+    // 
+    //     this.router.navigate(['catalog']);
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log(errorCode, errorMessage);
+    //   }
+    // );
+  
+
     try {
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      debugger
       this.user = userCredential.user;
       this.uid = this.user.uid;
-
-      console.log(this.user);
-      console.log(getAuth().currentUser);
       
-  
       this.router.navigate(['catalog']);
-
-      await this.firestore.collection('users')
-      .doc(userCredential.user.uid).set({ firstName, lastName, email });
       
+      const userData = this.firestore.collection('users')
+      .doc(userCredential.user.uid).set({ firstName: firstName, lastName: lastName, email: email });
+      console.log(userData);
 
     } catch (error) {
       const errorCode = (error as { code: string }).code;
@@ -64,7 +85,7 @@ export class UserService {
   }
 
   async logout() {
-
+    
     try {
       await signOut(this.auth);
       

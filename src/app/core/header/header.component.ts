@@ -12,7 +12,6 @@ export class HeaderComponent {
   
   
   isLogged(): boolean {
-    console.log(this.userService.isLoggedIn);
     return this.userService.isLoggedIn;
   }
 
