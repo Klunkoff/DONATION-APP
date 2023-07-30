@@ -12,7 +12,7 @@ export class UserService {
 
   auth = getAuth();
   user: User | undefined;
-  uid: any;
+  uid: string | undefined;
 
   constructor( private router: Router, private firestore: AngularFirestore ) { }
 
@@ -22,6 +22,12 @@ export class UserService {
     // console.log(!!getAuth().currentUser);
     
     return !!getAuth().currentUser;
+  }
+
+  getUserUID() {
+    console.log(this.uid);
+    
+    return this.uid;
   }
 
 
@@ -76,7 +82,7 @@ export class UserService {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       this.user = userCredential.user;
       this.uid = this.user.uid;
-      
+
       this.router.navigate(['catalog']);
       
     } catch (error) {
@@ -90,7 +96,8 @@ export class UserService {
     
     try {
       await signOut(this.auth);
-      
+      this.uid = undefined;
+
       this.router.navigate(['home']);
       
     } catch (error) {

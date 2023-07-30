@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DonationPost } from '../types/donationPost';
 import { UserService } from '../services/user.service';
@@ -9,7 +9,8 @@ import { PostsService } from '../services/posts.service';
   templateUrl: './donate.component.html',
   styleUrls: ['./donate.component.css']
 })
-export class DonateComponent {
+
+export class DonateComponent implements OnInit {
 
   constructor(private userService: UserService, private postsService: PostsService) { }
 
@@ -18,11 +19,13 @@ export class DonateComponent {
   selectedCategory: string = '';
 
 
+  ngOnInit(): void {
+    this.donationPost.userUID = this.userService.getUserUID();
+  }
+
+
   onSelectedCategory(event: any): void {
-
     this.selectedCategory = event;
-    console.log(this.selectedCategory);
-
   }
 
 
@@ -40,7 +43,6 @@ export class DonateComponent {
     this.donationPost.category = this.selectedCategory;
 
     this.postsService.addNewPostToDB(this.donationPost);
-
   }
 
 

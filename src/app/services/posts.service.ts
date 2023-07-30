@@ -22,8 +22,6 @@ export class PostsService {
         contact: donationPost.contact,
         photo: donationPost.photo,
         userUID: donationPost.userUID
-
-        // TODO - userUID logic !
       });
 
       // TODO - navigation
