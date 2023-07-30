@@ -19,7 +19,7 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
-    console.log(!!getAuth().currentUser);
+    // console.log(!!getAuth().currentUser);
     
     return !!getAuth().currentUser;
   }

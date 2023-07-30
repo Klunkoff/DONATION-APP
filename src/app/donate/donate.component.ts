@@ -11,26 +11,37 @@ import { PostsService } from '../services/posts.service';
 })
 export class DonateComponent {
 
-  constructor(private userService: UserService, private postsService: PostsService) {}
+  constructor(private userService: UserService, private postsService: PostsService) { }
 
   categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
   donationPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userIUD: '' };
-  
- post(donationForm: NgForm) {
+  selectedCategory: string = '';
 
-  if(donationForm.invalid) {
-    return;
+
+  onSelectedCategory(event: any): void {
+
+    this.selectedCategory = event;
+    console.log(this.selectedCategory);
+
   }
 
-  const { postTitle, description, contactInformation, postPhoto } = donationForm.value;
-  this.donationPost.postTitle = postTitle;
-  this.donationPost.description = description;
-  this.donationPost.contact = contactInformation;
-  this.donationPost.photo = postPhoto;
 
-  this.postsService.addNewPostToDB(this.donationPost);
+  post(donationForm: NgForm) {
 
- }
+    if (donationForm.invalid) {
+      return;
+    }
+
+    const { postTitle, description, contactInformation, postPhoto } = donationForm.value;
+    this.donationPost.postTitle = postTitle;
+    this.donationPost.description = description;
+    this.donationPost.contact = contactInformation;
+    this.donationPost.photo = postPhoto;
+    this.donationPost.category = this.selectedCategory;
+
+    this.postsService.addNewPostToDB(this.donationPost);
+
+  }
 
 
 }

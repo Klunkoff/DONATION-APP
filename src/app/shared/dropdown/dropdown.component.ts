@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,7 +9,19 @@ export class DropdownComponent {
 
   @Input() data: string[] = [];
 
+  @Output() currentCategory: EventEmitter<string> = new EventEmitter();
+
   title: string = 'Select Category';
   selectedValue: string = '';
+
+  onChange(): void { 
+
+    if(this.selectedValue !== this.title) {
+      console.log(this.selectedValue);
+      
+      this.currentCategory.emit(this.selectedValue);
+    }
+
+  }
 
 }
