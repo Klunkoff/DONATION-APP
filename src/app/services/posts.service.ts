@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { DonationPost } from '../types/donationPost';
 import { addDoc, collection } from 'firebase/firestore'; 
 import { db } from 'src/main';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
 
   async addNewPostToDB(donationPost: DonationPost) {
 
@@ -24,10 +26,9 @@ export class PostsService {
         userUID: donationPost.userUID
       });
 
-      // TODO - navigation
+      this.router.navigate(['catalog']);
       
     } catch (error) {
-      
       console.log('Can not add the post', error);
     }
 
