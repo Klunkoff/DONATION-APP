@@ -14,7 +14,7 @@ export class DonateComponent {
   constructor(private userService: UserService, private postsService: PostsService) { }
 
   categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
-  donationPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userIUD: '' };
+  donationPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
   selectedCategory: string = '';
 
 

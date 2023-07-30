@@ -21,10 +21,9 @@ export class PostsService {
         category: donationPost.category,
         contact: donationPost.contact,
         photo: donationPost.photo,
-        userIUD: donationPost.userIUD
+        userUID: donationPost.userUID
 
-        // TODO - userIUD logic !
-        // TODO - category logic !
+        // TODO - userUID logic !
       });
 
       // TODO - navigation
