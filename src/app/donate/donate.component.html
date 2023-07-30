@@ -37,6 +37,12 @@
             (currentCategory)="onSelectedCategory($event)"
             ></app-dropdown>
 
+            <!-- TODO - Do I need this checker ? -->
+
+            <!-- <ng-container *ngIf="selectedCategory === ''">
+                <p class="error">Select category</p>
+            </ng-container> -->
+
             <label for="contactInformation">Contact details</label>
             <input 
             #contactInformationInput="ngModel"
