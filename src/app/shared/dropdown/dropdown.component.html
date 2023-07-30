@@ -2,8 +2,5 @@
 [(ngModel)]="selectedValue"
 (change)="onChange()">
 <option value="" disabled selected>{{title}}</option>
-<option *ngFor="let category of data"
-        [selected]="selectedValue === category">
-        {{category}}
-    </option>
+<option *ngFor="let category of data">{{category}}</option>
 </select>
