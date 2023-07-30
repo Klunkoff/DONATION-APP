@@ -4,6 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { loggedUserGuard } from "../guards/logged-user.guard";
 
 
 const routes: Routes = [
@@ -13,10 +14,12 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: LoginComponent,
+                canActivate: [loggedUserGuard()]
             },
             {
                 path: 'register',
                 component: RegisterComponent,
+                canActivate: [loggedUserGuard()]
             },
             {
                 path: 'profile',
