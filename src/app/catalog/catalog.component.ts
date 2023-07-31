@@ -8,6 +8,7 @@ import { PostsService } from '../services/posts.service';
 })
 export class CatalogComponent implements OnInit {
 
+  allPosts: Array<any> = [];
 
   constructor(private postsService: PostsService) {}
 
@@ -18,7 +19,8 @@ export class CatalogComponent implements OnInit {
   async getAllPosts() {
 
     const posts = await this.postsService.getAllPostsFromDB();
-    console.log(posts);
+    this.allPosts = posts;
+    console.log(this.allPosts);
     
   }
 

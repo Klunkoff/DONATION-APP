@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +14,6 @@ import { SharedModule } from './shared/shared.module';
 import { DonateComponent } from './donate/donate.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { environment } from 'src/environments/environments';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule, 
+    MatCardModule,
     SharedModule,
     CoreModule,
     UserModule,

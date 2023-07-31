@@ -2,7 +2,21 @@
     <div class="container">
         <h1>Explore today's donations</h1>
         <div>
-            
+            <mat-card class="card" *ngFor="let post of allPosts">
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"></div>
+                    <mat-card-title>{{post.data.postTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{post.data.category}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-lg-image src="{{post.data.photo}}" alt="">
+                <mat-card-content>
+                    <p>{{post.data.description}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button class="requestbtn">Request</button>
+                </mat-card-actions>
+
+            </mat-card>
 
             <!-- TODO - Create donation card and list all donations -->
 

@@ -8,3 +8,36 @@
     padding: 16px;
     text-align: center;
 }
+
+.card {
+    width: 350px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.header-image {
+    background-image: url('../../assets/blank-profile-pic.png');
+    background-size: cover;
+}
+
+.requestbtn {
+    background-color: #345bc8;
+    color: #faf8f7;
+    padding: 16px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.8;
+    font-size: 16px;
+    display: inline;
+}
+
+.requestbtn:hover {
+    opacity: 2;
+}
+
+.mdc-card__actions {
+    display: contents;
+}
