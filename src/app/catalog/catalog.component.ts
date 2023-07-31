@@ -6,9 +6,12 @@ import { PostsService } from '../services/posts.service';
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css']
 })
+
 export class CatalogComponent implements OnInit {
 
   allPosts: Array<any> = [];
+
+  spinner: boolean = true;
 
   constructor(private postsService: PostsService) {}
 
@@ -17,10 +20,11 @@ export class CatalogComponent implements OnInit {
   }
 
   async getAllPosts() {
-
+   
     const posts = await this.postsService.getAllPostsFromDB();
     this.allPosts = posts;
-    console.log(this.allPosts);
+    
+    // this.spinner = false;
     
   }
 
