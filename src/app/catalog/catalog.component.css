@@ -23,7 +23,7 @@
 .requestbtn {
     background-color: #345bc8;
     color: #faf8f7;
-    padding: 16px 20px;
+    padding: 14px 20px;
     margin: 10px 0;
     border-radius: 15px;
     border: none;
@@ -38,6 +38,24 @@
     opacity: 2;
 }
 
+.mat-mdc-card {
+    position: relative;
+    border: 1px soutset #345bc8;
+    border-radius: 15px;
+    padding: 16px;
+    box-shadow: 0 0 15px #ced9f6;
+}
+
 .mdc-card__actions {
     display: contents;
 }
+
+.mat-mdc-card-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.mat-card-title {
+    margin-bottom: 20px;
+}
+
