@@ -24,7 +24,7 @@ export class CatalogComponent implements OnInit {
     const posts = await this.postsService.getAllPostsFromDB();
     this.allPosts = posts;
     
-    // this.spinner = false;
+    this.spinner = false;
     
   }
 
