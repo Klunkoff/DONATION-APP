@@ -1,25 +1,26 @@
 <section id="profile">
-    
-      <div class="first-column">
-        
-      </div>
-    
-    <div class="second-column">
 
-        <mat-card class="card" >
-            <mat-card-header>
-                <mat-card-title></mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-lg-image src="" alt="">
-            <mat-card-content>
-                <p></p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button class="editbtn">Edit</button>
-            </mat-card-actions>
+    <div class="first-column">
 
-        </mat-card>
-      </div>
-    
-  </section>
+    </div>
+    <div class="container">
+            <h1 id="header">Your donations</h1>
+        <div class="second-column">
+            
+            <mat-card class="card" *ngFor="let post of userPosts">
+                <mat-card-header>
+                    <mat-card-title>{{post.data.postTitle}}</mat-card-title>
+                    <mat-card-subtitle>{{post.data.category}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-lg-image src="{{post.data.photo}}" alt="">
+                <mat-card-content>
+                    <p>{{post.data.description}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button class="editbtn">Edit</button>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </div>
+</section>
