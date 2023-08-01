@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DonationPost } from '../types/donationPost';
-import { addDoc, collection, getDocs } from 'firebase/firestore'; 
+import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'; 
 import { db } from 'src/main';
 import { Router } from '@angular/router';
 
@@ -53,6 +53,26 @@ export class PostsService {
   }
 
   
+  async getUserPostsFromDB (uid: string) {
+
+    const posts: Array<any> = [];
+
+    try {
+      const queryData = query(collection(db, 'posts'), where('userUID', '==', uid));
+      const queryFirebaseData = await getDocs(queryData);
+      console.log(queryFirebaseData);
+      
+      queryFirebaseData.forEach((firebaseDoc) => {
+        const post = {key: firebaseDoc.id, data: firebaseDoc.data()};
+        posts.push(post);
+      });
+      
+    } catch (error) {
+      console.log('Can not getting the firebase data', error);
+    }
+
+    return posts;
+  }
 
 
 

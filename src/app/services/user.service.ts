@@ -25,36 +25,11 @@ export class UserService {
   }
 
   getUserUID() {
-    console.log(this.uid);
-    
     return this.uid;
   }
 
 
   async registerWithEmailAndPassword(firstName: string, lastName: string, email: string, password: string) {
-
-
-    // createUserWithEmailAndPassword(this.auth, email, password)
-    //   .then((userCredential) => {
-    //     this.user = userCredential.user;
-    //     this.uid = userCredential.user.uid;
-    //      return this.firestore.collection('users')
-    //       .doc(userCredential.user.uid)
-    //       .set({firstName: firstName, lastName: lastName, email: email });
-          
-          
-    //   })
-    //   .then(() => {
-    // 
-    //     this.router.navigate(['catalog']);
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     console.log(errorCode, errorMessage);
-    //   }
-    // );
-  
 
     try {
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
