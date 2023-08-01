@@ -58,10 +58,6 @@ export class UserService {
       this.user = userCredential.user;
       this.uid = this.user.uid;
 
-      this.findUserByUID(this.uid)
-      
-      
-
       this.router.navigate(['catalog']);
       
     } catch (error) {
@@ -91,11 +87,7 @@ export class UserService {
     const docRef = doc(db, 'users', uid);
     const docData = await getDoc(docRef);
 
-    const data = {data: docData.data()}
-    console.log(data);
-    
     return docData.data();
-
   }
 
 
