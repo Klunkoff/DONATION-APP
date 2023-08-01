@@ -5,6 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    MatCardModule,
     UserRoutingModule,
   ]
 })
