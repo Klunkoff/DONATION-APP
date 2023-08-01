@@ -77,3 +77,27 @@
 #header {
     margin-left: 300px
 }
+
+#img-donation {
+    height: 500px;
+    width: 700px;
+}
+
+/* Kennedy animation */
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* adding animation to the element */
+.fadeIn {
+    animation-name: fadeInAnimation; /* animation name */
+    animation-duration: 4s;
+    animation-timing-function: ease; 
+    animation-fill-mode: forwards; /* left last value of the animation */
+}

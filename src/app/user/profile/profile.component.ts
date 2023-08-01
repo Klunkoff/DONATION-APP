@@ -33,6 +33,10 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  userHasNoPosts(): boolean {
+    return this.userPosts.length == 0 ? true : false;
+  }
+
 
 
 }

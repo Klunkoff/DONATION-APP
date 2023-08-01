@@ -58,9 +58,8 @@ export class PostsService {
     const posts: Array<any> = [];
 
     try {
-      const queryData = query(collection(db, 'posts'), where('userUID', '==', uid));
-      const queryFirebaseData = await getDocs(queryData);
-      console.log(queryFirebaseData);
+      const queryRef = query(collection(db, 'posts'), where('userUID', '==', uid));
+      const queryFirebaseData = await getDocs(queryRef);
       
       queryFirebaseData.forEach((firebaseDoc) => {
         const post = {key: firebaseDoc.id, data: firebaseDoc.data()};
