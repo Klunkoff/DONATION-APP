@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
     ) {}
 
 
@@ -29,7 +31,6 @@ export class ProfileComponent implements OnInit {
     if(this.userUID !== undefined) {
       const posts = await this.postsService.getUserPostsFromDB(this.userUID);
       this.userPosts = posts;
-      console.log(this.userPosts);
     }
   }
 
@@ -38,9 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   editDonation(postID: string) {
-
-    console.log(postID);
-    
+    this.router.navigate(['users/edit'], { queryParams: { id: postID }});
   }
 
 
