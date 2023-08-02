@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { DonateComponent } from './donate/donate.component';
 import { CatalogComponent } from './catalog/catalog.component';
+
+import { notLoggedUserGuard } from './guards/not-logged-user.guard';
 
 const routes: Routes = [
   {
@@ -17,11 +20,13 @@ const routes: Routes = [
   },
   {
     path: 'donate',
-    component: DonateComponent
+    component: DonateComponent,
+    canActivate: [notLoggedUserGuard()]
   },
   {
     path: 'catalog',
-    component: CatalogComponent
+    component: CatalogComponent,
+    canActivate: [notLoggedUserGuard()]
   },
   {
     path: 'not-found',

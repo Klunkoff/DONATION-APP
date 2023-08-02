@@ -7,6 +7,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { DonationEditComponent } from "./donation-edit/donation-edit.component";
 
 import { loggedUserGuard } from "../guards/logged-user.guard";
+import { notLoggedUserGuard } from "../guards/not-logged-user.guard";
 
 
 const routes: Routes = [
@@ -26,10 +27,12 @@ const routes: Routes = [
             {
                 path: 'profile',
                 component: ProfileComponent,
+                canActivate: [notLoggedUserGuard()]
             },
             {
                 path: 'edit',
                 component: DonationEditComponent,
+                canActivate: [notLoggedUserGuard()]
             },
         ]
     }
