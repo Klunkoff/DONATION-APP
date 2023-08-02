@@ -37,6 +37,12 @@ export class ProfileComponent implements OnInit {
     return this.userPosts.length == 0 ? true : false;
   }
 
+  editDonation(postID: string) {
+
+    console.log(postID);
+    
+  }
+
 
 
 }

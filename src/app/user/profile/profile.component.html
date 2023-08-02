@@ -24,7 +24,7 @@
                     <p>{{post.data.description}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button class="editbtn">Edit</button>
+                    <button mat-button class="editbtn" (click)="editDonation(post.key)">Edit</button>
                 </mat-card-actions>
             </mat-card>
         </div>

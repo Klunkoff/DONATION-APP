@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { DonationEditComponent } from './donation-edit/donation-edit.component';
 
 
 
@@ -13,7 +14,8 @@ import { MatCardModule } from '@angular/material/card';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    DonationEditComponent
   ],
   imports: [
     CommonModule,

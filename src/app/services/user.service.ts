@@ -21,7 +21,7 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
-    console.log(this.auth.currentUser?.uid);
+    // console.log(this.auth.currentUser?.uid);
 
     this.uid = this.auth.currentUser?.uid;
 
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   getUserUID() {
-    return this.uid;
+    return this.auth.currentUser?.uid;
   }
 
 
