@@ -21,9 +21,11 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
-    // console.log(!!getAuth().currentUser);
+    console.log(this.auth.currentUser?.uid);
 
-    return !!getAuth().currentUser;
+    this.uid = this.auth.currentUser?.uid;
+
+    return !!this.auth.currentUser?.uid;
   }
 
   getUserUID() {
@@ -110,6 +112,8 @@ export class UserService {
   getUserRequests$(): Observable<string[]> {
 
     const uid = this.getUserUID();
+    console.log(uid);
+    
 
     const userRequests = from(this.findUserByUID(uid!)).pipe(map((user) => {
 
