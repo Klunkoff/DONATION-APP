@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../services/posts.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-catalog',
@@ -13,7 +14,10 @@ export class CatalogComponent implements OnInit {
 
   spinner: boolean = true;
 
-  constructor(private postsService: PostsService) {}
+  constructor(
+    private postsService: PostsService, 
+    private userService: UserService
+    ) {}
 
   ngOnInit(): void {
     this.getAllPosts();
@@ -25,6 +29,11 @@ export class CatalogComponent implements OnInit {
     this.allPosts = posts;
     
     this.spinner = false;
+  }
+
+  clickRequest(postID: string): void {
+
+    this.userService.addRequestItemToUserRequests(postID);
     
   }
 

@@ -13,7 +13,7 @@
                     <p>{{post.data.description}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button class="requestbtn">Request</button>
+                    <button mat-button class="requestbtn" (click)="clickRequest(post.key)">Request</button>
                 </mat-card-actions>
 
             </mat-card>

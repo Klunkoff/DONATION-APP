@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword } from '@firebase/auth';
-import { doc, getDoc } from 'firebase/firestore'; 
+import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore'; 
 import { db } from 'src/main';
 
 @Injectable({
@@ -58,6 +58,9 @@ export class UserService {
       this.user = userCredential.user;
       this.uid = this.user.uid;
 
+      // TODO - remove it after all checks !!!
+      this.findUserByUID(this.uid) 
+
       this.router.navigate(['catalog']);
       
     } catch (error) {
@@ -87,8 +90,23 @@ export class UserService {
     const docRef = doc(db, 'users', uid);
     const docData = await getDoc(docRef);
 
+    // TODO - remove it after all checks !!!
+    console.log(docData.data());
+
     return docData.data();
   }
+
+  async addRequestItemToUserRequests(postID: string) {
+
+    const uid = this.getUserUID();
+
+    if(uid !== undefined) {
+      const userRef = doc(db, 'users', uid);
+      await updateDoc(userRef, { requestedItems: arrayUnion(postID) });
+    }
+  }
+
+  
 
 
 }
