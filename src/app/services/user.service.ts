@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword } from '@firebase/auth';
-import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore'; 
+import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from 'src/main';
+import { Observable, from, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class UserService {
 
   get isLoggedIn() {
     // console.log(!!getAuth().currentUser);
-    
+
     return !!getAuth().currentUser;
   }
 
@@ -37,11 +38,11 @@ export class UserService {
       debugger
       this.user = userCredential.user;
       this.uid = this.user.uid;
-      
+
       this.router.navigate(['catalog']);
-      
+
       const userData = this.firestore.collection('users')
-      .doc(userCredential.user.uid).set({ firstName: firstName, lastName: lastName, email: email });
+        .doc(userCredential.user.uid).set({ firstName: firstName, lastName: lastName, email: email });
 
     } catch (error) {
       const errorCode = (error as { code: string }).code;
@@ -51,7 +52,7 @@ export class UserService {
   }
 
 
-  async loginWithEmailAndPassword (email: string, password: string) {
+  async loginWithEmailAndPassword(email: string, password: string) {
 
     try {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
@@ -59,10 +60,10 @@ export class UserService {
       this.uid = this.user.uid;
 
       // TODO - remove it after all checks !!!
-      this.findUserByUID(this.uid) 
+      this.findUserByUID(this.uid)
 
       this.router.navigate(['catalog']);
-      
+
     } catch (error) {
       const errorCode = (error as { code: string }).code;
       const errorMessage = (error as { message: string }).message;
@@ -71,13 +72,13 @@ export class UserService {
   }
 
   async logout() {
-    
+
     try {
       await signOut(this.auth);
       this.uid = undefined;
 
       this.router.navigate(['home']);
-      
+
     } catch (error) {
       const errorCode = (error as { code: string }).code;
       const errorMessage = (error as { message: string }).message;
@@ -100,13 +101,35 @@ export class UserService {
 
     const uid = this.getUserUID();
 
-    if(uid !== undefined) {
+    if (uid !== undefined) {
       const userRef = doc(db, 'users', uid);
       await updateDoc(userRef, { requestedItems: arrayUnion(postID) });
     }
   }
 
-  
+  getUserRequests$(): Observable<string[]> {
+
+    const uid = this.getUserUID();
+
+    const userRequests = from(this.findUserByUID(uid!)).pipe(map((user) => {
+
+      if (user !== undefined) {
+        return user['requestedItems'];
+      }
+
+    }));
+
+    return userRequests;
+  }
+
+
+
 
 
 }
+
+
+
+
+
+

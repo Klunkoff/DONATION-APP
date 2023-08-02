@@ -38,6 +38,20 @@
     opacity: 2;
 }
 
+.request-disabled {
+    background-color: grey;
+    color: #faf8f7;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: none;
+    cursor: not-allowed;
+    width: 50%;
+    opacity: 0.8;
+    font-size: 16px;
+    display: inline;
+}
+
 .mat-mdc-card {
     position: relative;
     border: 1px soutset #345bc8;

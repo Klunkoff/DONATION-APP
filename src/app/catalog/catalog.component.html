@@ -13,7 +13,8 @@
                     <p>{{post.data.description}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button class="requestbtn" (click)="clickRequest(post.key)">Request</button>
+                    <button mat-button class="requestbtn" *ngIf="!alreadyRequested(post.key)" (click)="clickRequest(post.key)">Request</button>
+                    <button mat-button class="request-disabled" *ngIf="alreadyRequested(post.key)">Requested</button>
                 </mat-card-actions>
 
             </mat-card>
