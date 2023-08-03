@@ -11,7 +11,7 @@
             id="postTitle" 
             type="text" 
             name="postTitle" 
-            placeholder="Enter a title">
+            value="{{postToEdit.postTitle}}">
             <ng-container *ngIf="postTitleInput.touched">
                 <p *ngIf="postTitleInput.errors?.['required']" class="error">Title is required</p>
             </ng-container>
@@ -25,16 +25,22 @@
             id="description" 
             type="text" 
             name="description" 
-            placeholder="Enter description here">
+            value="{{postToEdit.description}}">
             <ng-container *ngIf="descriptionInput.touched">
                 <p *ngIf="descriptionInput.errors?.['required']" class="error">Description is required</p>
                 <p *ngIf="descriptionInput.errors?.['minlength']" class="error">Description should be at least 10 characters long</p>
             </ng-container>
             
             <label for="category">Category</label>
-            <app-dropdown 
+
+            <!-- TODO - have to solve the display value issue !!! -->
+
+            <app-dropdown
             [data]="categoriesData"
+            [ngModel]="selectedCategory"
+            (ngModelChange)="selectedCategory = $event"
             (currentCategory)="onSelectedCategory($event)"
+            
             ></app-dropdown>
 
             <!-- TODO - Do I need this checker ? -->

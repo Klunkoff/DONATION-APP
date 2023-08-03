@@ -20,11 +20,11 @@ export class DonationEditComponent implements OnInit {
     ) { }
     
     categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
-    postToEdit = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
-    editedPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
+    postToEdit: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
+    // editedPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
 
     postID: string = '';
-    selectedCategory = '';
+    selectedCategory: string = '';
 
 
   ngOnInit(): void {
@@ -48,6 +48,18 @@ export class DonationEditComponent implements OnInit {
   async getPost() {
 
     const post = await this.postsService.getPostByUID(this.postID);
+
+    if(post) {
+      this.postToEdit.postTitle = post['postTitle'];
+      this.postToEdit.description = post['description'];
+      this.postToEdit.category = post['category'];
+      this.selectedCategory = post['category'];
+      this.postToEdit.contact = post['contact'];
+      this.postToEdit.photo = post['photo'];
+      this.postToEdit.userUID = post['userUID'];
+      
+    }
+
     console.log(post);
     
   }

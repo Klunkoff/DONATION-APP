@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class DropdownComponent {
 
   @Input() data: string[] = [];
+  @Input() value: string = '';
 
   @Output() currentCategory: EventEmitter<string> = new EventEmitter();
 
