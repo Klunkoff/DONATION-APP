@@ -62,6 +62,16 @@ export class DonationEditComponent implements OnInit {
 
     console.log(post);
     
+    
+  }
+
+  printConsole() {
+    console.log(this.postToEdit.postTitle);
+    console.log(this.postToEdit.description);
+    console.log(this.selectedCategory);
+    console.log(this.postToEdit.contact);
+    console.log(this.postToEdit.photo);
+    console.log(this.postToEdit.userUID);
   }
 
 

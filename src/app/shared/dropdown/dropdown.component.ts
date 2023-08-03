@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css']
 })
-export class DropdownComponent {
+export class DropdownComponent implements OnChanges {
 
   @Input() data: string[] = [];
   @Input() value: string = '';
+  @Input() name: string = '';
 
   @Output() currentCategory: EventEmitter<string> = new EventEmitter();
 
@@ -18,11 +19,15 @@ export class DropdownComponent {
   onChange(): void { 
 
     if(this.selectedValue !== this.title) {
-      console.log(this.selectedValue);
-      
       this.currentCategory.emit(this.selectedValue);
+      
+      console.log(this.selectedValue);
     }
+  }
 
+
+  ngOnChanges(): void {
+    this.selectedValue = this.value ?? this.title;
   }
 
 }

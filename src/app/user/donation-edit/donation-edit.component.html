@@ -6,12 +6,11 @@
             <label for="postTitle">Title</label>
             <input
             #postTitleInput="ngModel"
-            ngModel
+            [(ngModel)]="postToEdit.postTitle"
             required 
             id="postTitle" 
             type="text" 
-            name="postTitle" 
-            value="{{postToEdit.postTitle}}">
+            name="postTitle">
             <ng-container *ngIf="postTitleInput.touched">
                 <p *ngIf="postTitleInput.errors?.['required']" class="error">Title is required</p>
             </ng-container>
@@ -19,28 +18,22 @@
             <label for="description">Description</label>
             <input 
             #descriptionInput="ngModel"
-            ngModel
+            [(ngModel)]="postToEdit.description"
             required
             minlength="10"
             id="description" 
             type="text" 
-            name="description" 
-            value="{{postToEdit.description}}">
+            name="description">
             <ng-container *ngIf="descriptionInput.touched">
                 <p *ngIf="descriptionInput.errors?.['required']" class="error">Description is required</p>
                 <p *ngIf="descriptionInput.errors?.['minlength']" class="error">Description should be at least 10 characters long</p>
             </ng-container>
             
             <label for="category">Category</label>
-
-            <!-- TODO - have to solve the display value issue !!! -->
-
             <app-dropdown
             [data]="categoriesData"
-            [ngModel]="selectedCategory"
-            (ngModelChange)="selectedCategory = $event"
             (currentCategory)="onSelectedCategory($event)"
-            
+            [value]="selectedCategory"
             ></app-dropdown>
 
             <!-- TODO - Do I need this checker ? -->
@@ -52,13 +45,12 @@
             <label for="contactInformation">Contact details</label>
             <input 
             #contactInformationInput="ngModel"
-            ngModel
+            [(ngModel)]="postToEdit.contact"
             required
             minlength="10"
             id="contactInformation" 
             type="text" 
-            name="contactInformation" 
-            placeholder="Enter contact details">
+            name="contactInformation">
             <ng-container *ngIf="contactInformationInput.touched">
                 <p *ngIf="contactInformationInput.errors?.['required']" class="error">Contact details is required</p>
                 <p *ngIf="contactInformationInput.errors?.['minlength']" class="error">Contact details should be at least 10 characters long</p>
@@ -67,12 +59,11 @@
             <label for="postPhoto">Upload an image</label>
             <input 
             #postPhotoInput="ngModel"
-            ngModel
+            [(ngModel)]="postToEdit.photo"
             required
             id="postPhoto" 
             type="text" 
-            name="postPhoto" 
-            placeholder="Upload image here">
+            name="postPhoto">
             <ng-container *ngIf="postPhotoInput.touched">
                 <p *ngIf="postPhotoInput.errors?.['required']" class="error">Image is required</p>
             </ng-container>   
@@ -80,7 +71,7 @@
             <button type="submit" 
             [disabled]="editDonationForm.invalid" [ngClass]="{ 'disabled': editDonationForm.invalid }"
             class="submitbtn button">Submit</button>
-            <button class="deletebtn">Delete</button>
+            <button class="deletebtn" (click)="printConsole()">Delete</button>
         </div>
     </form>
 </section>
