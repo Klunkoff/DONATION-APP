@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DonationPost } from '../types/donationPost';
-import { addDoc, collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore'; 
+import { addDoc, collection, getDocs, query, where, doc, getDoc, updateDoc } from 'firebase/firestore'; 
 import { db } from 'src/main';
 import { Router } from '@angular/router';
 
@@ -73,10 +73,10 @@ export class PostsService {
   }
 
 
-  async getPostByUID(uid: string) {
+  async getPostByID(postID: string) {
 
     try {
-      const docRef = doc(db, 'posts', uid);
+      const docRef = doc(db, 'posts', postID);
       const docData = await getDoc(docRef);
   
       return docData.data();
@@ -86,7 +86,19 @@ export class PostsService {
 
       return undefined;
     }
+  }
 
+
+  async updatePostByID(postID: string, postToEdit: any) {
+
+    try {
+      const docRef = doc(db, 'posts', postID);
+      const docData = await updateDoc(docRef, postToEdit);
+      
+    } catch (error) {
+      console.log('Can not update the document', error);
+
+    }
   }
 
 

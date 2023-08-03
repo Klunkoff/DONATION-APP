@@ -21,7 +21,6 @@ export class DonationEditComponent implements OnInit {
     
     categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
     postToEdit: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
-    // editedPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };
 
     postID: string = '';
     selectedCategory: string = '';
@@ -41,13 +40,15 @@ export class DonationEditComponent implements OnInit {
     });
   }
 
+
   onSelectedCategory(event: any): void {
     this.selectedCategory = event;
   }
 
+
   async getPost() {
 
-    const post = await this.postsService.getPostByUID(this.postID);
+    const post = await this.postsService.getPostByID(this.postID);
 
     if(post) {
       this.postToEdit.postTitle = post['postTitle'];
@@ -57,13 +58,9 @@ export class DonationEditComponent implements OnInit {
       this.postToEdit.contact = post['contact'];
       this.postToEdit.photo = post['photo'];
       this.postToEdit.userUID = post['userUID'];
-      
     }
-
-    console.log(post);
-    
-    
   }
+
 
   printConsole() {
     console.log(this.postToEdit.postTitle);
@@ -81,9 +78,13 @@ export class DonationEditComponent implements OnInit {
       return;
     }
 
+    this.postToEdit.category = this.selectedCategory;
+    this.postsService.updatePostByID(this.postID, this.postToEdit);
 
-
+    this.router.navigate(['users/profile']);
   }
+
+
 
 
 }
