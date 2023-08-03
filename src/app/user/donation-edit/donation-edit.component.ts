@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-donation-edit',
@@ -8,12 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DonationEditComponent implements OnInit {
 
-  postID: string = '';
-
   constructor(
     private activatedRoute: ActivatedRoute,
-  ) { }
-
+    private router: Router,
+    ) { }
+    
+    categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
+    postID: string = '';
+    selectedCategory = '';
 
 
   ngOnInit(): void {
@@ -29,6 +32,22 @@ export class DonationEditComponent implements OnInit {
       }
 
     });
-    
   }
+
+  onSelectedCategory(event: any): void {
+    this.selectedCategory = event;
+  }
+
+
+  editPost(editDonationForm: NgForm) {
+
+    if (editDonationForm.invalid) {
+      return;
+    }
+
+
+
+  }
+
+
 }

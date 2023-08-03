@@ -12,7 +12,10 @@ import { PostsService } from '../services/posts.service';
 
 export class DonateComponent implements OnInit {
 
-  constructor(private userService: UserService, private postsService: PostsService) { }
+  constructor(
+    private userService: UserService, 
+    private postsService: PostsService
+    ) { }
 
   categoriesData = ['food', 'clothes', 'shoes', 'tech', 'books', 'cutlery', 'home', 'time', 'games', 'other'];
   donationPost: DonationPost = { postTitle: '', description: '', category: '', contact: '', photo: '', userUID: '' };

@@ -1,1 +1,80 @@
-<p>donation-edit works!</p>
+<section id="edit-donation">
+    <form #editDonationForm="ngForm" method="POST" (ngSubmit)="editPost(editDonationForm)" id="donate-form">
+        <div class="container">
+            <h1>Edit your donation</h1>
+
+            <label for="postTitle">Title</label>
+            <input
+            #postTitleInput="ngModel"
+            ngModel
+            required 
+            id="postTitle" 
+            type="text" 
+            name="postTitle" 
+            placeholder="Enter a title">
+            <ng-container *ngIf="postTitleInput.touched">
+                <p *ngIf="postTitleInput.errors?.['required']" class="error">Title is required</p>
+            </ng-container>
+            
+            <label for="description">Description</label>
+            <input 
+            #descriptionInput="ngModel"
+            ngModel
+            required
+            minlength="10"
+            id="description" 
+            type="text" 
+            name="description" 
+            placeholder="Enter description here">
+            <ng-container *ngIf="descriptionInput.touched">
+                <p *ngIf="descriptionInput.errors?.['required']" class="error">Description is required</p>
+                <p *ngIf="descriptionInput.errors?.['minlength']" class="error">Description should be at least 10 characters long</p>
+            </ng-container>
+            
+            <label for="category">Category</label>
+            <app-dropdown 
+            [data]="categoriesData"
+            (currentCategory)="onSelectedCategory($event)"
+            ></app-dropdown>
+
+            <!-- TODO - Do I need this checker ? -->
+
+            <!-- <ng-container *ngIf="selectedCategory === ''">
+                <p class="error">Select category</p>
+            </ng-container> -->
+
+            <label for="contactInformation">Contact details</label>
+            <input 
+            #contactInformationInput="ngModel"
+            ngModel
+            required
+            minlength="10"
+            id="contactInformation" 
+            type="text" 
+            name="contactInformation" 
+            placeholder="Enter contact details">
+            <ng-container *ngIf="contactInformationInput.touched">
+                <p *ngIf="contactInformationInput.errors?.['required']" class="error">Contact details is required</p>
+                <p *ngIf="contactInformationInput.errors?.['minlength']" class="error">Contact details should be at least 10 characters long</p>
+            </ng-container>
+
+            <label for="postPhoto">Upload an image</label>
+            <input 
+            #postPhotoInput="ngModel"
+            ngModel
+            required
+            id="postPhoto" 
+            type="text" 
+            name="postPhoto" 
+            placeholder="Upload image here">
+            <ng-container *ngIf="postPhotoInput.touched">
+                <p *ngIf="postPhotoInput.errors?.['required']" class="error">Image is required</p>
+            </ng-container>   
+                 
+            <button type="submit" 
+            [disabled]="editDonationForm.invalid" [ngClass]="{ 'disabled': editDonationForm.invalid }"
+            class="submitbtn button">Submit</button>
+            <button class="deletebtn">Delete</button>
+        </div>
+    </form>
+</section>
