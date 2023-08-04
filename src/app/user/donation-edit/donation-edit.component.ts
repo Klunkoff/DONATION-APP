@@ -70,7 +70,7 @@ export class DonationEditComponent implements OnInit {
     
     this.postToEdit.category = this.selectedCategory;
     this.postsService.updatePostByID(this.postID, this.postToEdit);
-    
+
     this.router.navigate(['users/profile']);
   }
   
@@ -81,7 +81,7 @@ export class DonationEditComponent implements OnInit {
 
     if(confirmation) {
       this.postsService.deletePostByID(this.postID);
-    }
+    } 
     
   }
 
