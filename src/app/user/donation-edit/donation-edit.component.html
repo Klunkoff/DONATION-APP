@@ -71,7 +71,9 @@
             <button type="submit" 
             [disabled]="editDonationForm.invalid" [ngClass]="{ 'disabled': editDonationForm.invalid }"
             class="submitbtn button">Submit</button>
-            <button class="deletebtn" (click)="deletePost()">Delete</button>
         </div>
     </form>
+    <div class="delete-container">
+        <button class="deletebtn" (click)="deletePost()">Delete</button>
+    </div>
 </section>

@@ -81,6 +81,8 @@ export class DonationEditComponent implements OnInit {
 
     if(confirmation) {
       this.postsService.deletePostByID(this.postID);
+      
+      this.router.navigate(['users/profile']);
     } 
     
   }
