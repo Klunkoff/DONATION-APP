@@ -62,29 +62,28 @@ export class DonationEditComponent implements OnInit {
   }
 
 
-  printConsole() {
-    console.log(this.postToEdit.postTitle);
-    console.log(this.postToEdit.description);
-    console.log(this.selectedCategory);
-    console.log(this.postToEdit.contact);
-    console.log(this.postToEdit.photo);
-    console.log(this.postToEdit.userUID);
-  }
-
-
   editPost(editDonationForm: NgForm) {
-
+    
     if (editDonationForm.invalid) {
       return;
     }
-
+    
     this.postToEdit.category = this.selectedCategory;
     this.postsService.updatePostByID(this.postID, this.postToEdit);
-
+    
     this.router.navigate(['users/profile']);
   }
+  
+  
+  deletePost() {
 
+    const confirmation = window.confirm('Are you sure you want to delete the post?');
 
+    if(confirmation) {
+      this.postsService.deletePostByID(this.postID);
+    }
+    
+  }
 
 
 }
