@@ -37,14 +37,14 @@ export class UserService {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-      debugger
+     
       this.user = userCredential.user;
       this.uid = this.user.uid;
 
       this.router.navigate(['catalog']);
 
       const userData = this.firestore.collection('users')
-        .doc(userCredential.user.uid).set({ firstName: firstName, lastName: lastName, email: email });
+        .doc(userCredential.user.uid).set({ firstName, lastName, email });
 
     } catch (error) {
       const errorCode = (error as { code: string }).code;
