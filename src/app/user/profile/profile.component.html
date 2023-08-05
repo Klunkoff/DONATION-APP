@@ -12,7 +12,12 @@
                 
                 <div class="sticky">
                   <h1 class="card-names">
-                    <span class="card-fullname block">Dimitar Klunkoff</span>
+                    <ng-container *ngIf="!userInfo">
+                        <span class="card-fullname block">{{'Loading...'}}</span>
+                    </ng-container>
+                    <ng-container *ngIf="userInfo">
+                        <span class="card-fullname block">{{userInfo.firstName + ' ' + userInfo.lastName}}</span>
+                    </ng-container>
                   </h1>
                 </div>
                 <div class="border-box flex">

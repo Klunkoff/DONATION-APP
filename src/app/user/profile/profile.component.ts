@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   userPosts: Array<any> = [];
   userUID: string | undefined;
+  userInfo: any;
 
   constructor(
     private postsService: PostsService,
@@ -23,6 +24,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userUID = this.userService.getUserUID();
     this.getUserPosts();
+    this.getUserInformation();
   }
 
 
@@ -45,6 +47,17 @@ export class ProfileComponent implements OnInit {
 
   getUserDonations(): number {
     return this.userPosts.length;
+  }
+
+  async getUserInformation() {
+
+    if(this.userUID) {
+      const userData = await this.userService.findUserByUID(this.userUID);
+      this.userInfo = userData;
+
+      console.log(userData);
+      
+    }
   }
 
 }
