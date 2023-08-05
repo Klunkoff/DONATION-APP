@@ -43,5 +43,8 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  getUserDonations(): number {
+    return this.userPosts.length;
+  }
 
 }
