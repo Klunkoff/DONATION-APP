@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DonationEditComponent } from './donation-edit/donation-edit.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -24,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     FormsModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     UserRoutingModule,
   ]
 })

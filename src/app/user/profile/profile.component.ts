@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
   userUID: string | undefined;
   userInfo: any;
 
+  spinner: boolean = true;
+
   constructor(
     private postsService: PostsService,
     private userService: UserService,
@@ -33,6 +35,8 @@ export class ProfileComponent implements OnInit {
     if(this.userUID !== undefined) {
       const posts = await this.postsService.getUserPostsFromDB(this.userUID);
       this.userPosts = posts;
+
+      this.spinner = false;
     }
   }
 

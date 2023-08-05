@@ -1,76 +1,87 @@
 <section id="profile">
 
-    <div class="first-column">
+  <div class="first-column">
 
-        <div class="profile-column-block">
-            <div class="block">
-              <div class="profile-column-block mb0 center">
+    <div class="profile-column-block">
+      <div class="block">
+        <div class="profile-column-block mb0 center">
 
-                <div class="img-div">
-                    <img id="img-profile" src="../../assets/blank-profile-pic.png" alt="profile picture">
-                </div>
-                
-                <div class="sticky">
-                  <h1 class="card-names">
-                    <ng-container *ngIf="!userInfo">
-                        <span class="card-fullname block">{{'Loading...'}}</span>
-                    </ng-container>
-                    <ng-container *ngIf="userInfo">
-                        <span class="card-fullname block">{{userInfo.firstName + ' ' + userInfo.lastName}}</span>
-                    </ng-container>
-                  </h1>
-                </div>
-                <div class="border-box flex">
-                  <div class="border-box block">
-                    <div class="border-box flex">
+          <div class="img-div">
+            <img id="img-profile" src="../../assets/blank-profile-pic.png" alt="profile picture">
+          </div>
 
-                        <!-- TODO - edit profile logic !!!!  -->
-                     
-                    </div>
-                  </div>
-                </div>
-                <div class="border-box block">
-                  <button class="btn">Edit profile</button>
-                </div>
-                <div class="container">
-                  <div>
-                    <span class="material-icons">card_giftcard</span>
-                    <p>Donations made: {{getUserDonations()}}</p>
-                  </div>
-                  <div>
-                    <span class="material-icons">room</span>
-                    <p>Location: Plovdiv</p>
-                  </div>
-                </div>
+          <div class="sticky">
+            <h1 class="card-names">
+              <ng-container *ngIf="!userInfo">
+                <span class="card-fullname block">{{'Loading...'}}</span>
+              </ng-container>
+              <ng-container *ngIf="userInfo">
+                <span class="card-fullname block">{{userInfo.firstName + ' ' + userInfo.lastName}}</span>
+              </ng-container>
+            </h1>
+          </div>
+          <div class="border-box flex">
+            <div class="border-box block">
+              <div class="border-box flex">
+
+                <!-- TODO - edit profile logic !!!!  -->
+
               </div>
             </div>
           </div>
-
-    </div>
-    <div class="container">
-            <h1 id="header">Your donations</h1>
-        <div class="second-column">
-
-            <div *ngIf="userHasNoPosts()">
-                <img id="img-donation" class="fadeIn" src="../../../assets/donation_card.jpg" alt="">
-                <div class="fadeIn">
-                    <h3 id="heading1"> You do not have any donations yet. Please make your first donation <a routerLink="/donate">here</a></h3>
-                </div>
+          <div class="border-box block">
+            <button class="btn">Edit profile</button>
+          </div>
+          <div class="container">
+            <div>
+              <span class="material-icons">card_giftcard</span>
+              <p>Donations made: {{getUserDonations()}}</p>
             </div>
-            
-            <mat-card class="card" *ngFor="let post of userPosts">
-                <mat-card-header>
-                    <mat-card-title>{{post.data.postTitle}}</mat-card-title>
-                    <mat-card-subtitle>{{post.data.category}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-lg-image src="{{post.data.photo}}" alt="">
-                <mat-card-content>
-                    <p>{{post.data.description}}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button class="editbtn" (click)="editDonation(post.key)">Edit</button>
-                </mat-card-actions>
-            </mat-card>
+            <div>
+              <span class="material-icons">room</span>
+              <p>Location: Plovdiv</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+
+  </div>
+  <div class="container">
+    <h1 id="header">Your donations</h1>
+    <div class="second-column">
+
+      <ng-container *ngIf="!spinner">
+        <div *ngIf="userHasNoPosts()">
+          <img id="img-donation" class="fadeIn" src="../../../assets/donation_card.jpg" alt="">
+          <div class="fadeIn">
+            <h3 id="heading1"> You do not have any donations yet. Please make your first donation <a
+                routerLink="/donate">here</a></h3>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="spinner-container" *ngIf="spinner">
+        <mat-spinner class="spinner" diameter="150"></mat-spinner>
+      </div>
+
+      <ng-container *ngIf="!spinner">
+        <mat-card class="card" *ngFor="let post of userPosts">
+          <mat-card-header>
+            <mat-card-title>{{post.data.postTitle}}</mat-card-title>
+            <mat-card-subtitle>{{post.data.category}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-lg-image src="{{post.data.photo}}" alt="">
+          <mat-card-content>
+            <p>{{post.data.description}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button class="editbtn" (click)="editDonation(post.key)">Edit</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+
+    </div>
+    
+  </div>
 </section>
