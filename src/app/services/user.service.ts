@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword } from '@firebase/auth';
+import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth';
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from 'src/main';
 import { Observable, from, map } from 'rxjs';
@@ -21,12 +21,25 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
-    // console.log(this.auth.currentUser?.uid);
 
-    this.uid = this.auth.currentUser?.uid;
-
-    return !!this.auth.currentUser?.uid;
+    console.log(this.uid);
+    
+    return !!this.uid;
   }
+
+
+  checkUserStatus() {
+    onAuthStateChanged(this.auth, (user) => {
+
+      if(user) {
+        this.uid = user.uid;
+
+      } else {
+        this.uid = undefined;
+      }
+    });
+  }
+
 
   getUserUID() {
     return this.auth.currentUser?.uid;
