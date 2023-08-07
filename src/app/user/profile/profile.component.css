@@ -9,6 +9,16 @@
     text-align: center;
 }
 
+.info-container {
+    margin-top: 20px;
+    background-color: white;
+    padding: 16px;
+    text-align: center;
+    border: 1px soutset #345bc8;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ced9f6;
+}
+
 .card {
     width: 382px;
     display: inline-block;
@@ -114,7 +124,7 @@
     position: absolute;
     box-sizing: border-box; 
     display: block;
-    margin-top: 60px;
+    margin-top: 40px;
     margin-left: 10px;
 }
 
