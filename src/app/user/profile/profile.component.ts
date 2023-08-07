@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   userInfo: any;
 
   spinner: boolean = true;
+  showEditForm: boolean = false;
 
   constructor(
     private postsService: PostsService,
@@ -62,6 +63,10 @@ export class ProfileComponent implements OnInit {
       console.log(userData);
       
     }
+  }
+
+  showOrHideProfileEditForm() {
+    this.showEditForm = !this.showEditForm;
   }
 
 }

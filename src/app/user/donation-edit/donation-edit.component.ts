@@ -75,12 +75,12 @@ export class DonationEditComponent implements OnInit {
   }
   
   
-  deletePost() {
+  async deletePost() {
 
     const confirmation = window.confirm('Are you sure you want to delete the post?');
 
     if(confirmation) {
-      this.postsService.deletePostByID(this.postID);
+      await this.postsService.deletePostByID(this.postID);
       
       this.router.navigate(['users/profile']);
     } 

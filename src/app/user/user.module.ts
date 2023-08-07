@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DonationEditComponent } from './donation-edit/donation-edit.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 
@@ -18,7 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    DonationEditComponent
+    DonationEditComponent,
+    ProfileEditComponent
   ],
   imports: [
     CommonModule,

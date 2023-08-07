@@ -22,15 +22,17 @@
           </div>
           <div class="border-box flex">
             <div class="border-box block">
-              <div class="border-box flex">
+              <div class="border-box flex" *ngIf="showEditForm">
 
-                <!-- TODO - edit profile logic !!!!  -->
+                <app-profile-edit>
+
+                </app-profile-edit>
 
               </div>
             </div>
           </div>
           <div class="border-box block">
-            <button class="btn">Edit profile</button>
+            <button class="btn" (click)="showOrHideProfileEditForm()">Edit profile</button>
           </div>
           <div class="info-container">
             <div>
