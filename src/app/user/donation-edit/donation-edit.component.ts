@@ -62,14 +62,14 @@ export class DonationEditComponent implements OnInit {
   }
 
 
-  editPost(editDonationForm: NgForm) {
+  async editPost(editDonationForm: NgForm) {
     
     if (editDonationForm.invalid) {
       return;
     }
     
     this.postToEdit.category = this.selectedCategory;
-    this.postsService.updatePostByID(this.postID, this.postToEdit);
+    await this.postsService.updatePostByID(this.postID, this.postToEdit); 
 
     this.router.navigate(['users/profile']);
   }
