@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-edit',
@@ -12,7 +13,19 @@ export class ProfileEditComponent {
   @Input() lastName: string = '';
   @Input() city: string = '';
 
+  @Output() cancelEditForm: EventEmitter<boolean> = new EventEmitter();
+
   constructor() {}
 
+
+  onSave(editProfileForm: NgForm) {
+
+    console.log(editProfileForm.value);
+    
+  }
+
+  cancelEdit(): void {
+    this.cancelEditForm.emit(false);
+  }
 
 }

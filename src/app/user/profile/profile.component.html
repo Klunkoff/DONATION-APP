@@ -27,7 +27,8 @@
                 <app-profile-edit
                 [firstName]="userInfo.firstName"
                 [lastName]="userInfo.lastName"
-                [city]="userInfo.city">
+                [city]="userInfo.city"
+                (cancelEditForm)="showOrHideProfileEditForm()">
 
                 </app-profile-edit>
 
@@ -35,7 +36,7 @@
             </div>
           </div>
           <div class="border-box block">
-            <button class="btn" (click)="showOrHideProfileEditForm()">Edit profile</button>
+            <button class="btn" (click)="showOrHideProfileEditForm()" [hidden]="showEditForm">Edit profile</button>
           </div>
           <div class="info-container">
             <div>
