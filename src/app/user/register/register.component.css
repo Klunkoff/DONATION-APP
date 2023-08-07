@@ -34,12 +34,12 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     border: none;
     cursor: pointer;
     width: 54%;
-    opacity: 0.9;
+    opacity: 0.8;
     font-size: 16px;
 }
 
 .registerbtn:hover {
-    opacity: 1;
+    opacity: 2;
     font-size: 17px;
 }
 

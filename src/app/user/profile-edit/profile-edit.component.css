@@ -1,0 +1,62 @@
+.container {
+    background-color: white;
+    text-align: center;
+}
+
+#edit-profile {
+    width: 256px;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+input[type=text] {
+    width: 223px;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.btn {
+    color: #faf8f7;
+    padding: 16px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width: 256px;
+    opacity: 0.8;
+    font-size: 16px;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.savebtn {
+    background-color: #345bc8;
+}
+
+.cancelbtn {
+    background-color: #f44336; 
+}
+
+.btn:hover {
+    opacity: 2;
+    /* font-size: 17px; */
+}
+
+.error {
+    color: #f44336;
+}
+
+button.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
