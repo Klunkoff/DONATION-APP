@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile-edit',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent {
+
+
+  @Input() firstName: string = '';
+  @Input() lastName: string = '';
+  @Input() city: string = '';
+
+  constructor() {}
+
 
 }

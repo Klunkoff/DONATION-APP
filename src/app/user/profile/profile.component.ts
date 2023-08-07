@@ -60,7 +60,12 @@ export class ProfileComponent implements OnInit {
       const userData = await this.userService.findUserByUID(this.userUID);
       this.userInfo = userData;
 
-      console.log(userData);
+      if(!userData?.['city']) {
+        this.userInfo.city = '';
+
+      }
+
+      console.log(this.userInfo);
       
     }
   }

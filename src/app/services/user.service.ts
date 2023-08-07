@@ -22,7 +22,7 @@ export class UserService {
 
   get isLoggedIn() {
 
-    console.log(this.uid);
+    // console.log(this.uid);
     
     return !!this.uid;
   }

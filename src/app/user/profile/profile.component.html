@@ -24,7 +24,10 @@
             <div class="border-box block">
               <div class="border-box flex" *ngIf="showEditForm">
 
-                <app-profile-edit>
+                <app-profile-edit
+                [firstName]="userInfo.firstName"
+                [lastName]="userInfo.lastName"
+                [city]="userInfo.city">
 
                 </app-profile-edit>
 
