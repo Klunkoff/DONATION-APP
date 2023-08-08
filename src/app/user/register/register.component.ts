@@ -21,4 +21,17 @@ export class RegisterComponent {
     this.userService.registerWithEmailAndPassword(firstName, lastName, email, password);
   }
 
+
+  registerErrorFromDB() {
+
+    if(this.userService.errorFromDB) {
+
+      setTimeout(() => {
+        this.userService.errorFromDB = '';
+      }, 3000);
+    }
+
+    return this.userService.errorFromDB;
+  }
+
 }

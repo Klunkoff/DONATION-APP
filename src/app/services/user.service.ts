@@ -62,6 +62,9 @@ export class UserService {
     } catch (error) {
       const errorCode = (error as { code: string }).code;
       const errorMessage = (error as { message: string }).message;
+
+      this.errorFromDB = 'This email is already registered!';
+
       console.log(errorCode, errorMessage);
     }
   }
