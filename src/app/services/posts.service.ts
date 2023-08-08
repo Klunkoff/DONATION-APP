@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class PostsService {
 
   constructor(private router: Router) { }
@@ -97,7 +99,6 @@ export class PostsService {
       
     } catch (error) {
       console.log('Can not update the document', error);
-
     }
   }
 
@@ -110,11 +111,9 @@ export class PostsService {
       
     } catch (error) {
       console.log('Can not delete the document', error);
-
     }
-
-
   }
 
+  
 
 }

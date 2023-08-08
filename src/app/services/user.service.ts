@@ -5,7 +5,6 @@ import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmail
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from 'src/main';
 import { Observable, from, map } from 'rxjs';
-import { NgForm } from '@angular/forms';
 
 
 @Injectable({
@@ -23,9 +22,6 @@ export class UserService {
   // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
-
-    // console.log(this.uid);
-    
     return !!this.uid;
   }
 
@@ -76,9 +72,6 @@ export class UserService {
       this.user = userCredential.user;
       this.uid = this.user.uid;
 
-      // TODO - remove it after all checks !!!
-      this.findUserByUID(this.uid)
-
       this.router.navigate(['catalog']);
 
     } catch (error) {
@@ -110,9 +103,6 @@ export class UserService {
     const docRef = doc(db, 'users', uid);
     const docData = await getDoc(docRef);
 
-    // TODO - remove it after all checks !!!
-    console.log(docData.data());
-
     return docData.data();
   }
 
@@ -133,7 +123,7 @@ export class UserService {
 
     const uid = this.getUserUID();
 
-    if (uid !== undefined) {
+    if (uid) {
       const userRef = doc(db, 'users', uid);
       await updateDoc(userRef, { requestedItems: arrayUnion(postID) });
     }
@@ -142,23 +132,15 @@ export class UserService {
   getUserRequests$(): Observable<string[]> {
 
     const uid = this.getUserUID();
-    console.log(uid);
-    
-
     const userRequests = from(this.findUserByUID(uid!)).pipe(map((user) => {
 
-      if (user !== undefined) {
+      if (user) {
         return user['requestedItems'];
       }
-
     }));
 
     return userRequests;
   }
-
-
-
-
 
 }
 
