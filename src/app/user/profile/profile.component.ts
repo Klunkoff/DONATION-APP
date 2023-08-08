@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { UserService } from 'src/app/services/user.service';
@@ -41,9 +42,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+
   userHasNoPosts(): boolean {
     return this.userPosts.length == 0 ? true : false;
   }
+
 
   editDonation(postID: string) {
     this.router.navigate(['users/edit'], { queryParams: { id: postID }});
@@ -53,6 +56,7 @@ export class ProfileComponent implements OnInit {
   getUserDonations(): number {
     return this.userPosts.length;
   }
+
 
   async getUserInformation() {
 
@@ -70,8 +74,16 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+
   showOrHideProfileEditForm() {
     this.showEditForm = !this.showEditForm;
+  }
+
+
+  editUserProfile(editProfileFormValue: NgForm) {
+
+    console.log(editProfileFormValue);
+    
   }
 
 }

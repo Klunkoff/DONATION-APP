@@ -28,8 +28,8 @@
                 [firstName]="userInfo.firstName"
                 [lastName]="userInfo.lastName"
                 [city]="userInfo.city"
-                (cancelEditForm)="showOrHideProfileEditForm()">
-
+                (cancelEditForm)="showOrHideProfileEditForm()"
+                (currentEditProfileInfo)="editUserProfile($event)">
                 </app-profile-edit>
 
               </div>

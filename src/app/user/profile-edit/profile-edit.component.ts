@@ -14,14 +14,13 @@ export class ProfileEditComponent {
   @Input() city: string = '';
 
   @Output() cancelEditForm: EventEmitter<boolean> = new EventEmitter();
+  @Output() currentEditProfileInfo: EventEmitter<NgForm> = new EventEmitter();
 
   constructor() {}
 
 
   onSave(editProfileForm: NgForm) {
-
-    console.log(editProfileForm.value);
-    
+    this.currentEditProfileInfo.emit(editProfileForm.value);
   }
 
   cancelEdit(): void {
