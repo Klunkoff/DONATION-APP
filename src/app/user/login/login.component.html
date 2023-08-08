@@ -17,6 +17,7 @@
             <ng-container *ngIf="emailInput.touched">
                 <p *ngIf="emailInput.errors?.['required']" class="error">Email is required</p>
                 <p *ngIf="emailInput.errors?.['pattern']" class="error">Email is not valid</p>
+                <p *ngIf="loginErrorFromDB()" class="error">{{loginErrorFromDB()}}</p>
             </ng-container>
 
             <label for="password">Password</label>

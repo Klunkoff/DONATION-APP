@@ -17,6 +17,8 @@ export class UserService {
   user: User | undefined;
   uid: string | undefined;
 
+  errorFromDB: string = '';
+
   constructor( private router: Router, private firestore: AngularFirestore ) { }
 
   // TODO - creating errorParser for database errors - maybe ? 
@@ -77,6 +79,9 @@ export class UserService {
     } catch (error) {
       const errorCode = (error as { code: string }).code;
       const errorMessage = (error as { message: string }).message;
+
+      this.errorFromDB = 'Email or Password do not match!';
+
       console.log(errorCode, errorMessage);
     }
   }
