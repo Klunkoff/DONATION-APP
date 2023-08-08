@@ -5,6 +5,8 @@ import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmail
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from 'src/main';
 import { Observable, from, map } from 'rxjs';
+import { NgForm } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +88,7 @@ export class UserService {
     }
   }
 
+
   async logout() {
 
     try {
@@ -101,6 +104,7 @@ export class UserService {
     }
   }
 
+
   async findUserByUID(uid: string) {
 
     const docRef = doc(db, 'users', uid);
@@ -111,6 +115,19 @@ export class UserService {
 
     return docData.data();
   }
+
+
+  async updateUserByID(uid: string, editProfileForm: any) {
+
+    try {
+      const userRef = doc(db, 'users', uid);
+      const docData = await updateDoc(userRef, editProfileForm);
+      
+    } catch (error) {
+      console.log('Can not update the document', error);
+    }
+  }
+
 
   async addRequestItemToUserRequests(postID: string) {
 

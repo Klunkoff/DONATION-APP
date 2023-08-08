@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { PostsService } from 'src/app/services/posts.service';
 import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
   userPosts: Array<any> = [];
@@ -34,7 +37,7 @@ export class ProfileComponent implements OnInit {
 
   async getUserPosts() {
 
-    if(this.userUID !== undefined) {
+    if(this.userUID) {
       const posts = await this.postsService.getUserPostsFromDB(this.userUID);
       this.userPosts = posts;
 
@@ -66,11 +69,7 @@ export class ProfileComponent implements OnInit {
 
       if(!userData?.['city']) {
         this.userInfo.city = '';
-
       }
-
-      console.log(this.userInfo);
-      
     }
   }
 
@@ -80,10 +79,14 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  editUserProfile(editProfileFormValue: NgForm) {
+  async editUserProfile(editProfileFormValue: NgForm) {
 
-    console.log(editProfileFormValue);
-    
+    if(this.userUID) {
+      await this.userService.updateUserByID(this.userUID, editProfileFormValue);
+      this.showOrHideProfileEditForm();
+      this.getUserInformation();
+    }
   }
+
 
 }
