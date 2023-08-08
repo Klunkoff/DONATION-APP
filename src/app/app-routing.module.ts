@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { DonateComponent } from './donate/donate.component';
 import { CatalogComponent } from './catalog/catalog.component';
+import { AboutUsComponent } from './shared/about-us/about-us.component';
 
 import { notLoggedUserGuard } from './guards/not-logged-user.guard';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: 'catalog',
     component: CatalogComponent,
     canActivate: [notLoggedUserGuard()]
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent
   },
   {
     path: 'not-found',
