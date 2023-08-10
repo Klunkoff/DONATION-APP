@@ -21,7 +21,6 @@ export class DropdownComponent implements OnChanges {
     if(this.selectedValue !== this.title) {
       this.currentCategory.emit(this.selectedValue);
       
-      console.log(this.selectedValue);
     }
   }
 

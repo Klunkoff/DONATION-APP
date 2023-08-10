@@ -1,6 +1,8 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { UserService } from '../services/user.service';
 import { inject } from '@angular/core';
+
+import { UserService } from '../services/user.service';
+
 
 export function loggedUserGuard(): CanActivateFn  {
 

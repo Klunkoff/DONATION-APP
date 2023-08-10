@@ -11,6 +11,7 @@ import { PostsService } from 'src/app/services/posts.service';
   templateUrl: './donation-edit.component.html',
   styleUrls: ['./donation-edit.component.css']
 })
+
 export class DonationEditComponent implements OnInit {
 
   constructor(
@@ -84,8 +85,6 @@ export class DonationEditComponent implements OnInit {
       
       this.router.navigate(['users/profile']);
     } 
-    
   }
-
 
 }

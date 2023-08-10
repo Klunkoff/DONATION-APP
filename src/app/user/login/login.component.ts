@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -11,7 +12,6 @@ import { UserService } from 'src/app/services/user.service';
 
 
 export class LoginComponent {
-
 
   constructor(private userService: UserService) {}
 
@@ -38,6 +38,5 @@ export class LoginComponent {
 
     return this.userService.errorFromDB;
   }
-
 
 }

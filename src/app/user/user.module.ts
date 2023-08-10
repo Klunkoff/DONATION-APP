@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
@@ -9,7 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DonationEditComponent } from './donation-edit/donation-edit.component';
 import { SharedModule } from '../shared/shared.module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
@@ -31,4 +31,5 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     UserRoutingModule,
   ]
 })
+
 export class UserModule { }

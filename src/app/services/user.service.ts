@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getAuth, signInWithEmailAndPassword, User, signOut, createUserWithEmailAndPassword, onAuthStateChanged } from '@firebase/auth';
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from 'src/main';
+
 import { Observable, from, map } from 'rxjs';
 
 
@@ -21,7 +23,6 @@ export class UserService {
 
   constructor( private router: Router, private firestore: AngularFirestore ) { }
 
-  // TODO - creating errorParser for database errors - maybe ? 
 
   get isLoggedIn() {
     return !!this.uid;

@@ -55,7 +55,4 @@ export class CatalogComponent implements OnInit {
     return false;
   }
 
-
-
-
 }

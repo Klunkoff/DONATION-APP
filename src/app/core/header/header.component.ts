@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
 
   constructor(private userService: UserService) { }
@@ -22,5 +23,4 @@ export class HeaderComponent implements OnInit {
     this.userService.logout();
   }
   
-
 }

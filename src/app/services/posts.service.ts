@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { DonationPost } from '../types/donationPost';
+import { Router } from '@angular/router';
+
 import { addDoc, collection, getDocs, query, where, doc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore'; 
 import { db } from 'src/main';
-import { Router } from '@angular/router';
+
+import { DonationPost } from '../types/donationPost';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,6 @@ import { Router } from '@angular/router';
 export class PostsService {
 
   constructor(private router: Router) { }
-
 
   async addNewPostToDB(donationPost: DonationPost) {
 
@@ -113,7 +114,5 @@ export class PostsService {
       console.log('Can not delete the document', error);
     }
   }
-
-  
 
 }

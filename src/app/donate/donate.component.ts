@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { DonationPost } from '../types/donationPost';
 import { UserService } from '../services/user.service';
 import { PostsService } from '../services/posts.service';
@@ -47,6 +48,5 @@ export class DonateComponent implements OnInit {
 
     this.postsService.addNewPostToDB(this.donationPost);
   }
-
 
 }
