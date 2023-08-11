@@ -1,6 +1,32 @@
 # DonationApp
+Simple user-friendly web application dedicated to supporting donation initiatives and organizations.
+## Description
+
+Donation App is a simple web application built using Angular that allows users to contribute to various donation initiatives and organizations. The app provides both a public section accessible without authentication and a private section available for registered users.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+
+## Features
+
+**Public Part:**
+
+-  **Home page** - The starting point of the application, providing an overview of its purpose and features. 
+
+-  **User login and registration forms** - Fully client-side and server-side validated forms
+
+-  **About us page** - Information about the organization behind the application, its mission, and goals.
+
+   
+   
+**Private Part (User Area):**      
+
+
+
+-  **Donation Catalog** - Access a comprehensive catalog of all donations within this section. Explore the range of available contributions and request them.
+
+-  **Profile Page** - Personalized space area for registered users upon successful login. This area allows users to easily manage their profiles, including editing personal details and chosen donations.
+  
+-  **Donation Creation** - Take advantage of the capability to create new donations directly from within this section. This feature offers a seamless way to initiate new contributions aligned with your interests.
 
 ## Development server
 
