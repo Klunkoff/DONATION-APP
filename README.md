@@ -16,17 +16,36 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 -  **About us page** - Information about the organization behind the application, its mission, and goals.
 
-   
-   
 **Private Part (User Area):**      
-
-
 
 -  **Donation Catalog** - Access a comprehensive catalog of all donations within this section. Explore the range of available contributions and request them.
 
 -  **Profile Page** - Personalized space area for registered users upon successful login. This area allows users to easily manage their profiles, including editing personal details and chosen donations.
   
 -  **Donation Creation** - Take advantage of the capability to create new donations directly from within this section. This feature offers a seamless way to initiate new contributions aligned with your interests.
+
+  ## Technologies Used
+
+-  **Angular**
+-  **Typescript**
+-  **HTML**
+-  **CSS**
+-  **Firebase (including Firestore)**
+
+## Installation
+
+1. **Clone** the repository.
+2. **Navigate** to the project directory.
+3. **Run** the following command based on your preferred runtime environment:
+   - If you have npm installed:   
+     Run "npm install" to install the project dependencies.
+   - If you are using another runtime environment (e.g., Yarn):   
+     Follow the appropriate command to install project dependencies for your environment.
+
+## Usage
+
+1. **Run** "ng serve" to start the development server.
+2. **Open** your web browser and navigate to "http://localhost:4200" to access the app.
 
 ## Development server
 
