@@ -68,3 +68,42 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Screenshots
+
+**Home page**
+
+![Donation-Home-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/90c6108d-69a7-4a6a-a19f-76060678389d)
+
+**Register page**
+
+![Donation-Register-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/de66ff28-e885-495b-9b24-9e62df27a414)
+
+**Catalog page**
+
+![Donation-Catalog-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/0f3c15af-ed44-437f-847a-c0f6c5c4f055)
+
+**Profile page**
+
+![Donation-Profile-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/9724cb16-1d53-4b79-94af-61f529b5bba3)
+
+**Empty Profile page**
+
+![Donation-Empty-Profile-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/dc47d50c-624b-4316-81d5-2be1095f407d)
+
+**Profile edit page**
+
+![Donation-Profile-Edit-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/4dcf8115-f803-461d-8925-055708b58957)
+
+**Donation edit page**
+
+![Donation-Edit-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/5acaae53-cb97-4888-bd73-ebd512508a0c)
+
+**Create donation page**
+
+![Donation-Create-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/24d9cf99-f3df-423b-a6fd-7680a36610c2)
+
+**Not Found page**
+
+![Donation-Not-Found-Page](https://github.com/Klunkoff/DONATION-APP/assets/111648794/7ed79dc3-4d5b-4724-be9e-49c08df28324)
+
